@@ -4,16 +4,14 @@ const Father = styled.div`
   display: flex;
 `;
 
-const Box1 = styled.div`
+const Box = styled.div`
   width: 100px;
   height: 100px;
-  background-color: teal;
+  background-color: ${(props) => props.customBg};
 `;
 
-const Box2 = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: tomato;
+const Circle = styled(Box)`
+  border-radius: 50%;
 `;
 
 const Text = styled.span`
@@ -28,17 +26,17 @@ function App() {
         <div style={{ width: 100, height: 100, backgroundColor: "teal" }}>
           <span style={{ color: "white" }}>Hi</span>
         </div>
-        <div style={{ width: 100, height: 100, backgroundColor: "tomato" }}>
+        <div style={{ width: 100, height: 100, backgroundColor: "tomato", borderRadius: "50%" }}>
           <span style={{ color: "white" }}>Hi</span>
         </div>
       </div>
       <Father>
-        <Box1>
+        <Box customBg="teal">
           <Text>Hi</Text>
-        </Box1>
-        <Box2>
+        </Box>
+        <Circle customBg="tomato">
           <Text>Hi</Text>
-        </Box2>
+        </Circle>
       </Father>
     </div>
   );
