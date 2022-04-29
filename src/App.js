@@ -47,16 +47,17 @@ const moveRotate = keyframes`
   }
 `;
 
+const Emoji = styled.span`
+  font-size: 50px;
+`;
+
 const MoveBox = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
   animation: ${moveRotate} 1.5s linear infinite;
-  span {
-    font-size: 50px;
-    &:hover {
-      font-size: 70px;
-    }
+  ${Emoji}:hover {
+    font-size: 70px;
   }
 `;
 
@@ -90,7 +91,7 @@ function App() {
       </Father>
       <Father>
         <MoveBox customBg="orange">
-          <span>☕</span>
+          <Emoji>☕</Emoji>
         </MoveBox>
       </Father>
     </div>
