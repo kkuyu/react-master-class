@@ -18,6 +18,20 @@ const Text = styled.span`
   color: white;
 `;
 
+const Btn = styled.button`
+  background-color: cyan;
+  border: 0;
+  border-radius: 15px;
+`;
+
+const Input = styled.input`
+  background-color: magenta;
+`;
+
+const InputAttr = styled(Input).attrs({ required: true })`
+  background-color: yellow;
+`;
+
 function App() {
   return (
     <div className="App">
@@ -37,6 +51,14 @@ function App() {
         <Circle customBg="tomato">
           <Text>Hi</Text>
         </Circle>
+      </Father>
+      <Father>
+        <Btn>button</Btn>
+        <Btn as="a" href="/link">
+          button as a
+        </Btn>
+        <Input required />
+        <InputAttr />
       </Father>
     </div>
   );
