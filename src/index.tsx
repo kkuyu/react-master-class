@@ -15,7 +15,7 @@ const lightTheme = {
   backgroundColor: "whitesmoke",
 };
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLDivElement);
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={darkTheme}>
