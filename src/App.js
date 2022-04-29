@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Father = styled.div`
   display: flex;
@@ -32,6 +32,34 @@ const InputAttr = styled(Input).attrs({ required: true })`
   background-color: yellow;
 `;
 
+const moveRotate = keyframes`
+  0% {
+    border-radius: 0px;
+    transform: scale(80%) rotate(0deg);
+  }
+  50% {
+    border-radius: 50px;
+    transform: scale(50%) rotate(360deg);
+  }
+  100% {
+    border-radius: 0px;
+    transform: scale(80%) rotate(0deg);
+  }
+`;
+
+const MoveBox = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${moveRotate} 1.5s linear infinite;
+  span {
+    font-size: 50px;
+    &:hover {
+      font-size: 70px;
+    }
+  }
+`;
+
 function App() {
   return (
     <div className="App">
@@ -59,6 +87,11 @@ function App() {
         </Btn>
         <Input required />
         <InputAttr />
+      </Father>
+      <Father>
+        <MoveBox customBg="orange">
+          <span>☕</span>
+        </MoveBox>
       </Father>
     </div>
   );
