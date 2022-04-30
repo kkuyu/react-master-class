@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+  background-color: ${(props) => props.theme.backgroundColor};
+  h1 {
+    color: ${(props) => props.theme.textColor};
+  }
+`;
 
 function App() {
   const [username, setUsername] = useState("");
@@ -17,7 +25,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Container>
+        <h1>Hello</h1>
+      </Container>
       <form onSubmit={onSubmit}>
         <input type="text" value={username} onChange={onChange} placeholder="username" />
         <button type="submit">Log in</button>
