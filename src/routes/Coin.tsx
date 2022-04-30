@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
-interface RouteParams {
+type RouteParamsTest = {
   coinId: string;
-}
+};
 
 function Coin() {
-  const { coinId } = useParams<RouteParams>();
+  const { coinId } = useParams<keyof RouteParamsTest>() as RouteParamsTest;
 
   return (
     <div>
