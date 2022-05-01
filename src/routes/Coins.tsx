@@ -78,7 +78,7 @@ function Coins() {
         <CoinList>
           {data?.slice(0, 100).map((item) => (
             <Coin key={item.id}>
-              <Link to={`/${item.id}`} state={{ name: item.name, rank: item.rank }}>
+              <Link to={`/${item.id}/line-chart`} state={{ name: item.name, rank: item.rank }}>
                 <Img src={`https://cryptocurrencyliveprices.com/img/${item.id}.png`} alt="" />
                 {item.name} &rarr;
               </Link>
