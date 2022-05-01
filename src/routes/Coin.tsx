@@ -147,8 +147,6 @@ function Coin() {
   const priceMatch: PathMatch<"coinId"> | null = useMatch("/:coinId/price");
   const chartMatch: PathMatch<"coinId"> | null = useMatch("/:coinId/chart");
 
-  console.log(priceMatch);
-
   useEffect(() => {
     (async () => {
       const infoData = await (await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)).json();
