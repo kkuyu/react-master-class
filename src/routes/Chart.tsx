@@ -20,7 +20,9 @@ export interface HistoricalData {
 
 function Chart() {
   const { coinId } = useOutletContext<OutletData>();
-  const { isLoading, data } = useQuery<HistoricalData[]>(["ohlcv", coinId], () => fetchCoinHistory(coinId));
+  const { isLoading, data } = useQuery<HistoricalData[]>(["ohlcv", coinId], () => fetchCoinHistory(coinId), {
+    refetchInterval: 10000,
+  });
 
   return (
     <div>
