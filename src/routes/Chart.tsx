@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import { useOutletContext } from "react-router-dom";
+import ApexChart from "react-apexcharts";
 import { fetchCoinHistory } from "../api";
 
 interface OutletData {
@@ -23,7 +24,45 @@ function Chart() {
 
   return (
     <div>
-      <h1>Chart</h1>
+      {isLoading ? (
+        "Loading chart..."
+      ) : (
+        <ApexChart
+          type="line"
+          series={[
+            {
+              name: "Price",
+              data: data?.map((price) => price.close) ?? [],
+            },
+          ]}
+          options={{
+            theme: {
+              mode: "dark",
+            },
+            chart: {
+              height: 300,
+              width: 500,
+              toolbar: {
+                show: false,
+              },
+              background: "transparent",
+            },
+            grid: { show: false },
+            stroke: {
+              curve: "smooth",
+              width: 4,
+            },
+            yaxis: {
+              show: false,
+            },
+            xaxis: {
+              axisBorder: { show: false },
+              axisTicks: { show: false },
+              labels: { show: false },
+            },
+          }}
+        />
+      )}
     </div>
   );
 }
