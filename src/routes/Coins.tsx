@@ -25,8 +25,9 @@ const Coin = styled.li`
     display: flex;
     align-items: center;
     padding: 20px;
-    color: ${(props) => props.theme.bgColor};
-    background-color: #fff;
+    background-color: ${(props) => props.theme.cardBgColor};
+    color: ${(props) => props.theme.textColor};
+    border: 1px solid white;
     border-radius: 15px;
     transition: color 0.2s ease-in;
     &:hover,
