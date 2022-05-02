@@ -62,11 +62,7 @@ export interface CoinInterface {
   type: string;
 }
 
-interface CoinsProps {
-  toggleDark: () => void;
-}
-
-function Coins({ toggleDark }: CoinsProps) {
+function Coins() {
   const { isLoading, data } = useQuery<CoinInterface[]>("allCoins", fetchCoins);
 
   return (
@@ -76,7 +72,6 @@ function Coins({ toggleDark }: CoinsProps) {
       </Helmet>
       <Header>
         <Title>Coins</Title>
-        <button onClick={toggleDark}>Toggle Theme</button>
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>
