@@ -7,7 +7,11 @@ interface OutletData {
   coinId: string;
 }
 
-function Chart() {
+interface ChartProps {
+  isDark: boolean;
+}
+
+function Chart({ isDark }: ChartProps) {
   const { coinId } = useOutletContext<OutletData>();
   const { isLoading, data } = useQuery<HistoricalData[]>(["ohlcv", coinId], () => fetchCoinHistory(coinId), {
     refetchInterval: 10000,
@@ -28,7 +32,7 @@ function Chart() {
           ]}
           options={{
             theme: {
-              mode: "dark",
+              mode: isDark ? "dark" : "light",
             },
             chart: {
               toolbar: {
