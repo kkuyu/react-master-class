@@ -1,10 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { fetchCoins } from "../api";
-import { isDarkAtom } from "../atoms";
+import ToggleTheme from "../components/ToggleTheme";
 
 const Container = styled.div`
   margin: 0 auto;
@@ -13,10 +12,17 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
+  position: relative;
   min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
 
 const CoinList = styled.ul``;
@@ -66,15 +72,14 @@ export interface CoinInterface {
 
 function Coins() {
   const { isLoading, data } = useQuery<CoinInterface[]>("allCoins", fetchCoins);
-  const setDarkAtom = useSetRecoilState(isDarkAtom);
-  const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
   return (
     <Container>
       <Helmet>
-        <title>Coins</title>
+        <title>Coins - Top100</title>
       </Helmet>
       <Header>
-        <Title>Coins</Title>.<button onClick={toggleDarkAtom}>toggle</button>
+        <Title>Coins</Title>
+        <ToggleTheme />
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>

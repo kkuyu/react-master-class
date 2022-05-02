@@ -71,6 +71,14 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 `;
 
 function App() {
